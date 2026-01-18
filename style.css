@@ -1,0 +1,439 @@
+/* =========================
+   Reset
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* =========================
+   Navbar محسّن (Elegant)
+========================= */
+nav {
+    background: linear-gradient(
+        90deg,
+        rgb(6, 32, 43),
+        rgb(122, 226, 207),
+        rgb(7, 122, 125),
+        rgb(75, 135, 129)
+    );
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 14px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+body {
+    padding-top: 90px;
+}
+
+/* =========================
+   محتوى الناف
+========================= */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================
+   اللوجو
+========================= */
+.logo {
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg,#ff0707,#fff200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* =========================
+   البحث
+========================= */
+.search-box {
+    position: relative;
+    width: 320px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 45px 12px 18px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* =========================
+   أيقونات الناف
+========================= */
+.nav-icons {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-icons button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.7);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.nav-icons button:hover {
+    background: #ff9a5f;
+    color: #fff;
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* =========================
+   الجزء العلوي (الصورة + الكروت المتحركة)
+========================= */
+.top-section {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+}
+
+/* كل واحد نص الصفحة */
+.hero-image,
+.wrapper {
+    width: 50%;
+}
+
+/* صورة اللوجو */
+.hero-image {
+    max-width: 500px;
+    margin: auto;
+    display: block;
+}
+
+/* =========================
+   الكروت المتحركة
+========================= */
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    --w:130px;
+    --h:150px;
+    --translateZ: 260px;
+    --rotateX:-15deg;
+    --perspective:1000px;
+
+    width: var(--w);
+    height: var(--h);
+    transform-style: preserve-3d;
+    animation: rotating 20s linear infinite;
+}
+
+@keyframes rotating {
+    from {
+        transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+    }
+    to {
+        transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(360deg);
+    }
+}
+
+.card {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgb(122, 226, 207);
+    transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
+               translateZ(var(--translateZ));
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* =========================
+   كروت التصنيفات
+========================= */
+.cards-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    gap: 110px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-card {
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.category-card:hover {
+    transform: scale(1.15);
+}
+
+.cards:hover > .category-card:not(:hover) {
+   
+    transform: scale(1.3);
+}
+
+/* =========================
+   ألوان الكروت
+========================= */
+.c1 {background:linear-gradient(135deg,#97A87A,#A8BBA3);}
+.c2 {background:linear-gradient(135deg,#A8BBA3,#FCF9EA);}
+.c3 {background:linear-gradient(135deg,#FCF9EA,#FFA239);}
+.c4 {background:linear-gradient(135deg,#6A9C89,#97A87A);}
+.c5 {background:linear-gradient(135deg,#FFA239,#CD5C08);}
+.c6 {background:linear-gradient(135deg,#C1D8C3,#6A9C89);}
+
+/* =========================
+   صور الكروت المتحركة
+========================= */
+.card:nth-child(1)  .img { background-image: url("img/image copy.png"); }
+.card:nth-child(2)  .img { background-image: url("img/image copy 2.png"); }
+.card:nth-child(3)  .img { background-image: url("img/image copy 3.png"); }
+.card:nth-child(4)  .img { background-image: url("img/image copy 4.png"); }
+.card:nth-child(5)  .img { background-image: url("img/image copy 5.png"); }
+.card:nth-child(6)  .img { background-image: url("img/image copy 6.png"); }
+.card:nth-child(7)  .img { background-image: url("img/image copy 7.png"); }
+.card:nth-child(8)  .img { background-image: url("img/image copy 8.png"); }
+.card:nth-child(9)  .img { background-image: url("img/image copy 9.png"); }
+.card:nth-child(10) .img { background-image: url("img/image copy 10.png"); }
+
+
+
+/* =========================
+   صور كروت التصنيفات
+========================= */
+.category-card {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* طبقة غامقة خفيفة للنص */
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+/* النص */
+.category-card p {
+    position: relative;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+/* =========================
+   ربط الصور
+========================= */
+.c1 { background-image: url("img/image copy 18.png"); }
+.c2 { background-image: url("img/image.png"); }
+.c3 { background-image: url("img/image\ copy\ 16.png"); }
+.c4 { background-image: url("img/image copy 23.png"); }
+.c5 { background-image: url("img/image copy 13.png"); }
+.c6 { background-image: url("img/image copy 11.png"); }
+
+
+#signupForm {
+  display: none;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #d9ede7;
+  height: auto;
+  width: auto;
+  border: 2px solid #264143;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #b2e3d8;
+}
+
+.title {
+  color: #264143;
+  font-weight: 900;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.sub_title {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 10px;
+}
+
+.form_style {
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #0bd6c5;
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.form_style:focus, .btn:focus {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px #07686d;
+}
+
+.btn {
+  padding: 15px;
+  margin: 25px 0px;
+  width: 290px;
+  font-size: 15px;
+  background: #65cfba;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px 0px #07ffc9;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.link {
+  font-weight: 800;
+  color: #264143;
+  padding: 5px;
+}
+/* =========================
+   Mobile Responsive Fix
+========================= */
+@media (max-width: 768px) {
+
+  .top-section {
+    flex-direction: column;   /* يخليهم تحت بعض */
+    padding: 0 15px;
+    gap: 30px;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 320px;
+    order: 1;                 /* الصورة أولًا */
+  }
+
+  .wrapper {
+    width: 100%;
+    order: 2;                 /* الكروت بعدها */
+    transform: scale(0.85);   /* تصغير بسيط */
+  }
+
+  .cards-section {
+    order: 3;                 /* التصنيفات آخر حاجة */
+  }
+}
+@media (max-width: 768px) {
+
+  .wrapper {
+    margin-bottom: 80px;   /* مسافة تحت الكروت الدوارة */
+  }
+
+  .cards-section {
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* =========================
+   Reset الفراغات
+========================= */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   Footer Image Center (آخر الصفحة)
+========================= */
+.footer-image-center {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* في النص */
+  align-items: center;
+  margin: 0;          /* مفيش فراغ */
+  padding: 0;         /* مفيش فراغ */
+}
+
+.footer-image-center img {
+  max-width: 900px;   /* حجم الصورة */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;          /* مهم */
+}
+

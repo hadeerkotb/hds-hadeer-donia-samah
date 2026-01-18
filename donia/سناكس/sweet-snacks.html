@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🍰 سناكس حلوة</title>
+
+    <style>
+      .accordion{
+  position:relative;
+  padding-left:60px;
+}
+
+.favorite{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:22px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  transition:.3s;
+}
+
+.favorite.active{
+  color:red;
+}
+
+      #searchInput {
+  width: 80%;               /* عرض المربع */
+  max-width: 500px;         /* أقصى عرض */
+  padding: 12px 20px;       /* مساحة داخلية */
+  margin: 20px auto;        /* مسافة فوق وتحت ومركزيه */
+  display: block;            /* لعرضه في السطر كامل */
+  font-size: 1.2em;         /* حجم الخط */
+  border: 2px solid #ff9800; /* لون الحدود */
+  border-radius: 25px;      /* حواف مستديرة */
+  outline: none;            /* إزالة الحد عند التركيز */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* ظل خفيف */
+  transition: all 0.3s ease; /* تأثير سلس عند التركيز */
+}
+
+#searchInput::placeholder {
+  color: #ff6f00;           /* لون النص التوضيحي */
+  opacity: 0.7;             /* شفافية النص */
+}
+
+#searchInput:focus {
+  border-color: #ff6f00;    /* لون الحدود عند التركيز */
+  box-shadow: 0 6px 15px rgba(255,111,0,0.3); /* ظل عند التركيز */
+  transform: scale(1.02);   /* تكبير خفيف عند التركيز */
+}
+
+      .snack-nav {
+  background: linear-gradient(135deg, #fff5ec, #ffe8d6);
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  border-radius: 0 0 20px 20px;
+}
+
+.snack-nav a {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #5a3e2b;
+  font-size: 16px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.snack-nav a:hover {
+  background-color: #5a3e2b;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+      body {
+        font-family: "Cairo", Tahoma, Arial, sans-serif;
+        background-color: #fff0f6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      /* Header */
+      header {
+        background-color: #ffd6e8;
+        padding: 25px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        font-size: 2.8em;
+        margin: 0;
+        color: #c44569;
+      }
+
+      /* Accordion */
+      .accordion {
+        background-color: #fff5fa;
+        color: #c44569;
+        cursor: pointer;
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+        border: none;
+        border-radius: 14px;
+        text-align: right;
+        outline: none;
+        font-size: 1.8em;
+        transition: all 0.3s;
+        margin: 20px auto;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+      .accordion:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+
+      .panel {
+        padding: 0 20px 20px;
+        display: none;
+        background-color: #fffafb;
+        border-radius: 0 0 14px 14px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Images */
+      img {
+        width: 80%;
+        max-width: 600px;
+        border-radius: 14px;
+        margin: 15px auto;
+        display: block;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      img:hover {
+        transform: scale(1.06);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+
+      ul,
+      ol {
+        text-align: right;
+        display: inline-block;
+        margin: 10px auto;
+      }
+      li {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+
+  <body>
+<nav class="snack-nav">
+
+  <a href="healthy-snacks.html">🥗 سناكس صحية</a>
+  <a href="sweet-snacks.html">🍩 سناكس حلوة</a>
+</nav>
+
+
+    <header>
+      <input type="text" id="searchInput" placeholder="دور على أكلة..." />
+
+      <h1>🍰 سناكس حلوة</h1>
+    </header>
+
+    <main>
+      <!-- 1 -->
+      <button class="accordion">🍪 كوكيز الشوكولاتة
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://kitchen.sayidaty.net/uploads/small/38/38b7382d9eba1e5034a305fc5e5dd76f_w750_h500.jpg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>دقيق</li>
+          <li>سكر</li>
+          <li>زبدة</li>
+          <li>بيض</li>
+          <li>شوكولاتة شيبس</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>اخلطي المكونات الجافة.</li>
+          <li>أضيفي الزبدة والبيض.</li>
+          <li>أضيفي الشوكولاتة.</li>
+          <li>اخبزي على 180°.</li>
+        </ol>
+      </div>
+
+      <!-- 2 -->
+      <button class="accordion">🍫 براونيز
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://ralia.lesiteinfo.com/wp-content/uploads/2021/11/%D8%A7%D9%84%D8%A8%D8%B1%D8%A7%D9%88%D9%86%D9%8A%D8%B2.jpg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>شوكولاتة</li>
+          <li>زبدة</li>
+          <li>سكر</li>
+          <li>بيض</li>
+          <li>دقيق</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>ذوبي الشوكولاتة.</li>
+          <li>اخلطي باقي المكونات.</li>
+          <li>اخبزي حتى تنضج.</li>
+        </ol>
+      </div>
+
+      <!-- 3 -->
+      <button class="accordion">🧁 مافن
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://www.arabianrecipe.com/wp-content/uploads/2021/10/%D9%83%D8%A8-%D9%83%D9%8A%D9%83-%D8%B4%D9%88%D9%83%D9%88%D9%84%D8%A7%D8%AA%D8%A9-2.webp"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>دقيق</li>
+          <li>سكر</li>
+          <li>بيض</li>
+          <li>حليب</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>اخلطي المكونات.</li>
+          <li>اسكبي في القوالب.</li>
+          <li>اخبزي 20 دقيقة.</li>
+        </ol>
+      </div>
+
+      <!-- 4 -->
+      <button class="accordion">🍩 دونات
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://img.freepik.com/premium-photo/cup-coffee-donuts-with-cup-coffee-background_1230717-302954.jpg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>دقيق</li>
+          <li>سكر</li>
+          <li>خميرة</li>
+          <li>حليب</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>اعجني المكونات.</li>
+          <li>اتركيها تختمر.</li>
+          <li>اقلي وزيني.</li>
+        </ol>
+      </div>
+
+      <!-- 5 -->
+      <button class="accordion">🥞 بان كيك
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://www.atyabtabkha.com/tachyon/sites/2/2024/07/pancake-1-1.jpg?fit=1024%2C630"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>دقيق</li>
+          <li>بيض</li>
+          <li>حليب</li>
+          <li>سكر</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>اخلطي المكونات.</li>
+          <li>اسكبي في الطاسة.</li>
+          <li>قدمي بالعسل.</li>
+        </ol>
+      </div>
+
+      <!-- 6 -->
+      <button class="accordion">🍓 وافل
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://kitchen.sayidaty.net/uploads/small/a6/a675fad216b77fb9d609e8d2a1a75ba9_w750_h750.jpg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>دقيق</li>
+          <li>بيض</li>
+          <li>حليب</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>حضري الخليط.</li>
+          <li>اطهي في ماكينة الوافل.</li>
+        </ol>
+      </div>
+
+      <!-- 7 -->
+      <button class="accordion">🍮 حلى الكاسات
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://kitchen.sayidaty.net/uploads/small/30/30867db8ec9acafa97b23fca92c37fce_w750_h750.jpg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>كريمة</li>
+          <li>بسكويت</li>
+          <li>صوص</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>رصي الطبقات.</li>
+          <li>بردي وقدمي.</li>
+        </ol>
+      </div>
+
+      <!-- 8 -->
+      <button class="accordion">🍌 تشوكولاتة بالموز
+          <span class="favorite">🤍</span>
+      </button>
+      <div class="panel">
+        <img
+          src="https://www.alyaum.com/uploads/images/2023/04/12/1910578.jpeg"
+        />
+        <h3>📝 المكونات:</h3>
+        <ul>
+          <li>موز</li>
+          <li>شوكولاتة</li>
+        </ul>
+        <h3>👩‍🍳 طريقةالتحضير</h3>
+        <ol>
+          <li>غمسي الموز بالشوكولاتة.</li>
+          <li>اتركيه يبرد.</li>
+        </ol>
+      </div>
+    </main>
+
+ <script>
+/* accordion */
+document.querySelectorAll(".accordion").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    if(e.target.classList.contains("favorite")) return;
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display==="block"?"none":"block";
+  });
+});
+
+/* favorite */
+document.querySelectorAll(".favorite").forEach((heart,i)=>{
+  if(localStorage.getItem("snackFav"+i)==="true"){
+    heart.classList.add("active");
+    heart.textContent="❤️";
+  }
+
+  heart.addEventListener("click",e=>{
+    e.stopPropagation();
+    heart.classList.toggle("active");
+    heart.textContent = heart.classList.contains("active") ? "❤️" : "🤍";
+    localStorage.setItem("snackFav"+i,heart.classList.contains("active"));
+  });
+});
+
+/* search */
+document.getElementById("searchInput").addEventListener("keyup",function(){
+  const filter=this.value.toLowerCase();
+  document.querySelectorAll(".accordion").forEach(btn=>{
+    const panel=btn.nextElementSibling;
+    if(btn.textContent.toLowerCase().includes(filter)){
+      btn.style.display="block";
+      panel.style.display="none";
+    }else{
+      btn.style.display="none";
+      panel.style.display="none";
+    }
+  });
+});
+</script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>العودة للصفحة الرئيسية</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+    }
+
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1abc9c; /* تركواز */
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      transition: all 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #16a085;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- زر العودة -->
+  <a href="../../index..html" class="back-home">
+    ⬅ العودة للصفحة الرئيسية
+  </a>
+
+  <!-- محتوى الصفحة -->
+  <h1>محتوى الصفحة</h1>
+  <p>هنا تحطي أي محتوى للصفحة…</p>
+
+</body>
+</html>
+  </body>
+</html>

@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥗 سناكس صحية</title>
+
+<style>
+  .accordion{
+  position:relative;
+  padding-left:60px;
+}
+
+.favorite{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:22px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  transition:.3s;
+}
+
+.favorite.active{
+  color:red;
+}
+
+    #searchInput {
+  width: 80%;               /* عرض المربع */
+  max-width: 500px;         /* أقصى عرض */
+  padding: 12px 20px;       /* مساحة داخلية */
+  margin: 20px auto;        /* مسافة فوق وتحت ومركزيه */
+  display: block;            /* لعرضه في السطر كامل */
+  font-size: 1.2em;         /* حجم الخط */
+  border: 2px solid #ff9800; /* لون الحدود */
+  border-radius: 25px;      /* حواف مستديرة */
+  outline: none;            /* إزالة الحد عند التركيز */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* ظل خفيف */
+  transition: all 0.3s ease; /* تأثير سلس عند التركيز */
+}
+
+#searchInput::placeholder {
+  color: #ff6f00;           /* لون النص التوضيحي */
+  opacity: 0.7;             /* شفافية النص */
+}
+
+#searchInput:focus {
+  border-color: #ff6f00;    /* لون الحدود عند التركيز */
+  box-shadow: 0 6px 15px rgba(255,111,0,0.3); /* ظل عند التركيز */
+  transform: scale(1.02);   /* تكبير خفيف عند التركيز */
+}
+
+    .snack-nav {
+  background: linear-gradient(135deg, #fff5ec, #ffe8d6);
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  border-radius: 0 0 20px 20px;
+}
+
+.snack-nav a {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #5a3e2b;
+  font-size: 16px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.snack-nav a:hover {
+  background-color: #5a3e2b;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+body {
+    font-family: 'Cairo', Tahoma, Arial, sans-serif;
+    background-color: #f3fff6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #d4f5df;
+    padding: 25px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    color: #2d6a4f;
+}
+
+/* Accordion */
+.accordion {
+    background-color: #e9fdf0;
+    color: #2d6a4f;
+    cursor: pointer;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border: none;
+    border-radius: 14px;
+    text-align: right;
+    outline: none;
+    font-size: 1.8em;
+    transition: all 0.3s;
+    margin: 20px auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.accordion:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.panel {
+    padding: 0 20px 20px;
+    display: none;
+    background-color: #fafffb;
+    border-radius: 0 0 14px 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 14px;
+    margin: 15px auto;
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+ul, ol {
+    text-align: right;
+    display: inline-block;
+    margin: 10px auto;
+}
+li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+</style>
+</head>
+
+<body>
+ <nav class="snack-nav">
+
+  <a href="healthy-snacks.html">🥗 سناكس صحية</a>
+  <a href="sweet-snacks.html">🍩 سناكس حلوة</a>
+  
+</nav>
+
+  
+
+<header>
+    <input type="text" id="searchInput" placeholder="دور على أكلة..." />
+
+    <h1>🥗 سناكس صحية</h1>
+</header>
+
+<main>
+
+<!-- 1 -->
+<button class="accordion">🍎 فواكه طازجة
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://cdn.arabsstock.com/uploads/images/189880/arts-of-serving-and-arranging-thumbnail-189880.webp">
+ <h3>📝 المكونات:</h3>
+<ul>
+<li>تفاح</li><li>موز</li><li>برتقال</li><li>فراولة</li>
+</ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>اغسلي الفواكه جيدًا.</li>
+<li>قطعيها وقدميها طازجة.</li>
+</ol>
+</div>
+
+<!-- 2 -->
+<button class="accordion">🥣 زبادي بالعسل والفواكه
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://kitchen.sayidaty.net/uploads/small/07/07be2caf3dab780b3ae4a07c2b497958_w750_h500.jpg">
+ <h3>📝 المكونات:</h3>
+<ul><li>زبادي</li><li>عسل</li><li>فواكه</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>ضعي الزبادي في طبق.</li>
+<li>أضيفي العسل والفواكه.</li>
+</ol>
+</div>
+
+<!-- 3 -->
+<button class="accordion">🥜 مكسرات محمصة
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://i.ytimg.com/vi/h_QzDG05kNI/maxresdefault.jpg">
+<ul><li>لوز</li><li>كاجو</li><li>فول سوداني</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>حمصي المكسرات بدون زيت.</li>
+<li>اتركيها تبرد وقدميها.</li>
+</ol>
+</div>
+
+<!-- 4 -->
+<button class="accordion">🥕 خضار مع حمص
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://static.vecteezy.com/system/resources/previews/049/134/311/non_2x/vegetarian-chickpea-salad-prepared-with-tomatoes-cucumber-red-onion-cress-salad-and-arugula-white-background-photo.jpg">
+ <h3>📝 المكونات:</h3>
+<ul><li>جزر</li><li>خيار</li><li>حمص</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>قطعي الخضار.</li>
+<li>قدميها مع الحمص.</li>
+</ol>
+</div>
+
+<!-- 5 -->
+<button class="accordion">🥑 توست أفوكادو
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://images.akhbarelyom.com/images/images/large/20240527104531821.jpg">
+ <h3>📝 المكونات:</h3>
+<ul><li>توست أسمر</li><li>أفوكادو</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>اهرسي الأفوكادو.</li>
+<li>افرديه على التوست.</li>
+</ol>
+</div>
+
+<!-- 6 -->
+<button class="accordion">🍿 فشار صحي
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://kms.sohati.com/Images/998x749xo/191023012402684~%D9%87%D9%84-%D8%A7%D9%84%D9%81%D8%B4%D8%A7%D8%B1-%D8%B3%D9%86%D8%A7%D9%83-%D8%B5%D8%AD%D9%8A.jpg">
+ <h3>📝 المكونات:</h3>
+<ul><li>ذرة فشار</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>حضري الفشار بدون زيت.</li>
+
+<li>أضيفي رشة ملح خفيفة.</li>
+</ol>
+</div>
+
+<!-- 7 -->
+<button class="accordion">🥪 ساندوتش جبنة لايت
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://i.ytimg.com/vi/CUP_ahBqN3k/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-BIAC4AOKAgwIABABGHIgUCg-MA8=&rs=AOn4CLBIMhXt6wC5rW-fAk9t9zJ6y4R3cg">
+ <h3>📝 المكونات:</h3>
+<ul><li>عيش أسمر</li><li>جبنة لايت</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>ضعي الجبنة في العيش.</li>
+<li>قدميه طازج.</li>
+</ol>
+</div>
+
+<!-- 8 -->
+<button class="accordion">🍌 موز بزبدة فول سوداني
+   <span class="favorite">🤍</span>
+</button>
+<div class="panel">
+<img src="https://vid.alarabiya.net/images/2025/12/03/a07f90c0-fa31-4300-8cee-d14dc7329345/a07f90c0-fa31-4300-8cee-d14dc7329345.jpg?crop=4:3&width=1200">
+ <h3>📝 المكونات:</h3>
+<ul><li>موز</li><li>زبدة فول سوداني</li></ul>
+<h3>👩‍🍳 طريقة التحضير:</h3>
+<ol>
+<li>قطعي الموز.</li>
+<li>ادهنيه بزبدة الفول.</li>
+</ol>
+</div>
+
+</main>
+<script>
+/* accordion */
+document.querySelectorAll(".accordion").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    if(e.target.classList.contains("favorite")) return;
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display==="block"?"none":"block";
+  });
+});
+
+/* favorite */
+document.querySelectorAll(".favorite").forEach((heart,i)=>{
+  if(localStorage.getItem("snackFav"+i)==="true"){
+    heart.classList.add("active");
+    heart.textContent="❤️";
+  }
+
+  heart.addEventListener("click",e=>{
+    e.stopPropagation();
+    heart.classList.toggle("active");
+    heart.textContent = heart.classList.contains("active") ? "❤️" : "🤍";
+    localStorage.setItem("snackFav"+i,heart.classList.contains("active"));
+  });
+});
+
+/* search */
+document.getElementById("searchInput").addEventListener("keyup",function(){
+  const filter=this.value.toLowerCase();
+  document.querySelectorAll(".accordion").forEach(btn=>{
+    const panel=btn.nextElementSibling;
+    if(btn.textContent.toLowerCase().includes(filter)){
+      btn.style.display="block";
+      panel.style.display="none";
+    }else{
+      btn.style.display="none";
+      panel.style.display="none";
+    }
+  });
+});
+</script>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>العودة للصفحة الرئيسية</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+    }
+
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1abc9c; /* تركواز */
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      transition: all 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #16a085;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- زر العودة -->
+  <a href="../../index..html" class="back-home">
+    ⬅ العودة للصفحة الرئيسية
+  </a>
+
+  <!-- محتوى الصفحة -->
+  <h1>محتوى الصفحة</h1>
+  <p>هنا تحطي أي محتوى للصفحة…</p>
+
+</body>
+</html>
+</body>
+</html>
